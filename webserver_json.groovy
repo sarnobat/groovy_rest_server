@@ -4,12 +4,6 @@ import java.net.URISyntaxException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
@@ -27,9 +21,12 @@ public class Server {
                 @Path("json")
                 @Produces("application/json")
                 public Response json() throws JSONException {
+                		System.out.println("1");
                         JSONObject json = new JSONObject();
+                		System.out.println("2");
                         json.put("foo", "bar");
- 					    return Response.ok().header("Access-Control-Allow-Origin", "*")
+                		System.out.println("3");
+					    return Response.ok().header("Access-Control-Allow-Origin", "*")
 						 			.entity(json.toString()).type("application/json").build();
                 }
         }

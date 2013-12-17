@@ -20,7 +20,9 @@ public class Server {
                 @GET
                 @Path("json")
                 @Produces("application/json")
-                public Response json() throws JSONException {
+                public Response json(
+                	// TODO: @QueryParam("rootId") Integer iRootId
+                	) throws JSONException {
                 		System.out.println("1");
                         JSONObject json = new JSONObject();
                 		System.out.println("2");

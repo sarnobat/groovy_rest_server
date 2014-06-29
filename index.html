@@ -9,7 +9,7 @@ $(document).ready(function(){
   $("button").click(function(){
     $.getJSON("http://localhost:9099/helloworld/json?param1=" + document.getElementById("urls").innerHTML,function(result){
       $.each(result, function(i, field){
-        $("div").append(i + " " + field + " ");
+        $("#items").append(i + " " + field + " ");
       });
     });
   });
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 <textarea id="urls">http://www.yahoo.com</textarea>
 <button>Stash this</button>
-<div></div>
+<div id="items"></div>
 
 </body>
 </html>

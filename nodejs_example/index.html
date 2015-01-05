@@ -6,14 +6,17 @@
 </script>
 <script>
 $(document).ready(function(){
+
 	var host = "localhost";//"netgear.rohidekar.com";
 	var url = "http://" +host+ ":4453/dups/all?locations=" + encodeURIComponent(document.getElementById("locations").innerHTML);
-	$("#status").append("Connecting to " + url);
-    $.getJSON(url,function(result){
-    	$.each(result, function(i, field){
-        $("#items").append(i + " " + field + " ");
-      });
-    });
+	
+	$.getJSON(url,function(result){
+		$.each(result, function(i, field){
+			$("#items").append(i + " " + field + " ");
+			$("#status").append("Success");			
+		});
+	});
+
 });
 </script>
 </head>
@@ -21,7 +24,7 @@ $(document).ready(function(){
 
 <textarea id="locations">http://www.yahoo.com</textarea>
 <br>
-<button>Connect to server</button>
+<!-- <button onclick="sendGet()">Send GET request</button> -->
 <br>
 <div id="items"></div>
 <br>

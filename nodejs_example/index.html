@@ -6,7 +6,10 @@
 </script>
 <script>
 $(document).ready(function(){
-    $.getJSON("http://netgear.rohidekar.com:4453/dups/all?locations=" + encodeURIComponent(document.getElementById("locations").innerHTML),function(result){
+	var host = "localhost";//"netgear.rohidekar.com";
+	var url = "http://" +host+ ":4453/dups/all?locations=" + encodeURIComponent(document.getElementById("locations").innerHTML);
+	$("#status").append("Connecting to " + url);
+    $.getJSON(url,function(result){
     	$.each(result, function(i, field){
         $("#items").append(i + " " + field + " ");
       });
@@ -17,8 +20,12 @@ $(document).ready(function(){
 <body>
 
 <textarea id="locations">http://www.yahoo.com</textarea>
-<button>Stash this</button>
+<br>
+<button>Connect to server</button>
+<br>
 <div id="items"></div>
+<br>
+<div id="status"></div>
 
 </body>
 </html>

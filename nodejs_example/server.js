@@ -9,7 +9,7 @@ var app = express();
 
 app.get('/dups/all', function(req, res) {
 	
-	var location = "/media/sarnobat/e/Sridhar/Photos/camera phone photos/iPhone/";
+	/*var location = "/media/sarnobat/e/Sridhar/Photos/camera phone photos/iPhone/";
 	var type = "dups_excess_only.txt";
 	{
 		exec("cat '"+location+"/"+type+"'", function (error, stdout, stderr) { 
@@ -21,11 +21,12 @@ app.get('/dups/all', function(req, res) {
 			var json = {};
 			json[location] =lines ;
 
-                        res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Origin", "*");
 			res.send(json);
 		});
-	}
-    
+	}*/
+	res.header("Access-Control-Allow-Origin", "*");
+	res.send({ parameter_you_sent : req.query.locations});
 });
 
 

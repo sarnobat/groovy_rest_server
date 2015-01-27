@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> -->
 <script src="jquery/jquery-1.9.1.js">
 </script>
 <script>
 $(document).ready(function(){
-    $.getJSON("http://netgear.rohidekar.com:4453/dups/all?locations=" + encodeURIComponent(document.getElementById("locations").innerHTML),function(result){
-    	$.each(result, function(i, field){
-        $("#items").append(i + " " + field + " ");
-      });
-    });
+
+	var host = "localhost";//"netgear.rohidekar.com";
+	var url = "http://" + host + ":4453/dups/all?locations="
+		+ encodeURIComponent($("#locations").html());
+	
+	$.getJSON(url,function(result){
+		$.each(result, function(i, field){
+			$("#items").append(i + ": <b>" + field + "<b>");
+			$("#status").append("Success");
+		});
+	});
+
 });
 </script>
 </head>
 <body>
 
-<textarea id="locations">http://www.yahoo.com</textarea>
-<button>Stash this</button>
+<textarea id="locations">My Name</textarea>
+<br>
+<br>
 <div id="items"></div>
+<br>
+<div id="status"></div>
 
 </body>
 </html>
